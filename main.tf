@@ -14,8 +14,6 @@ provider "azurerm" {
   # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   features {
   }
-  use_msi = true
-  subscription_id = "77936b57-d042-4051-88e3-5b541161752b"
 }
 
 variable "resource_group_name" {
