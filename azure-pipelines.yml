@@ -71,8 +71,7 @@ stages:
   jobs:
   - job: Provision
     displayName: 'Provision Azure App Service'
-    pool:
-      vmImage: 'ubuntu-18.04'
+    pool: MyAgentPool
     variables:
     - group: Release
     steps:
@@ -123,4 +122,3 @@ stages:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
-              
