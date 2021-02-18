@@ -86,6 +86,7 @@ stages:
         echo 'storage_account_name = "'$(StorageAccountName)'"' | tee -a backend.tfvars
         echo 'container_name = "tfstate"' | tee -a backend.tfvars
         echo 'key = "terraform.tfstate"' | tee -a backend.tfvars
+        echo 'use_msi = true' | tee -a backend.tfvars
 
         # Initialize Terraform.
         terraform init -input=false -backend-config="backend.tfvars"
@@ -100,8 +101,8 @@ stages:
       name: 'RunTerraform'
       displayName: 'Run Terraform'
       env:
+        ARM_SAS_TOKEN: $(ARM_SAS_TOKEN)
         ARM_USE_MSI: $(ARM_USE_MSI)
-        ARM_CLIENT_ID: $(ARM_CLIENT_ID
         ARM_TENANT_ID: $(ARM_TENANT_ID)
         ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
   - deployment: Deploy
