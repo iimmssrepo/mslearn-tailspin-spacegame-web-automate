@@ -115,8 +115,6 @@ stages:
       runOnce:
         deploy:
           steps:
-          - script: echo $(WebAppNameDev)
-            displayName: 'Show the value of my WebAppNameDev variable'
           - download: current
             artifact: drop
           - task: AzureWebApp@1
