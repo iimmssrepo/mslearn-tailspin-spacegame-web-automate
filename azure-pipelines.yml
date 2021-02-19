@@ -98,7 +98,7 @@ stages:
         WebAppNameDev=$(terraform output appservice_name_dev)
 
         # Write the WebAppNameDev variable to the pipeline.
-        echo ##vso[task.setvariable variable=WebAppNameDev;isOutput=true]$WebAppNameDev
+        'echo ##vso[task.setvariable variable=WebAppNameDev;isOutput=true]$WebAppNameDev'
       name: 'RunTerraform'
       displayName: 'Run Terraform'
       env:
@@ -108,7 +108,7 @@ stages:
   - deployment: Deploy
     dependsOn: Provision
     variables:
-      WebAppNameDev: $[ dependencies.Provision.outputs['RunTerraform.WebAppNameDev'] ]
+      WebAppNameDev: $[dependencies.Provision.outputs['RunTerraform.WebAppNameDev']]
     pool: MyAgentPool
     environment: dev
     strategy:
