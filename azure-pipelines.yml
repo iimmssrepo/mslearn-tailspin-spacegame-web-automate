@@ -102,7 +102,7 @@ stages:
       name: 'RunTerraform'
       displayName: 'Run Terraform'
       env:
-        ARM_USE_MSI: $(ARM_USE_MSI)
+        ARM_USE_MSI: true
         ARM_TENANT_ID: $(ARM_TENANT_ID)
         ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
   - deployment: Deploy
