@@ -14,6 +14,7 @@ provider "azurerm" {
   # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   features {
   }
+  use_msi = true
 }
 
 variable "resource_group_name" {
