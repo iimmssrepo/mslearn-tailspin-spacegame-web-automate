@@ -99,8 +99,7 @@ stages:
   jobs: 
   - job: 'DeployInfrastructure'
     displayName: 'Deploy infrastructure job'
-    pool:
-      vmImage: 'ubuntu-18.04'
+    pool: MyAgentPool
     variables:
     - group: 'Release'
     steps:
@@ -268,8 +267,7 @@ stages:
     )
   jobs:
   - deployment: Deploy
-    pool:
-      vmImage: 'ubuntu-18.04'
+    pool: MyAgentPool
     environment: dev
     variables:
     - group: Release
@@ -297,4 +295,3 @@ stages:
               appName: 'tailspin-space-game-web-dev-$(uniqueSuffix)'
               connectionStrings: |
                 [{ "name": "DefaultConnection","value": "$(connectionString)","type": "SQLAzure","slotSetting": false }]
-                
